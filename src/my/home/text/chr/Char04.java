@@ -1,4 +1,4 @@
-package my.home.string;
+package my.home.text.chr;
 
 public class Char04 {
 

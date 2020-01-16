@@ -1,4 +1,4 @@
-package by.home.text.regex;
+package my.home.text.regex;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -47,7 +47,7 @@ public class reg01 {
 	}
 	
 	public static String[] splitWords(String str) {
-		Pattern pattern = Pattern.compile("\\s*\\b(\\s|,|\\.+|!\\?|\\?!|!+|\\?+|;|:|-|—)\\s*"); //разделяем опираясь на конец слова, после которого идут знаки разделения слов
+		Pattern pattern = Pattern.compile("\\b(\\s+|,|\\.+|!\\?|\\?!|!+|\\?+|;|:|-|—)\\s*"); //разделяем опираясь на конец слова, после которого идут знаки разделения слов
 		return pattern.split(str);
 	}
 

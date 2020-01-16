@@ -1,11 +1,10 @@
 package my.home.text.chr;
 
-import java.util.Arrays;
 
 public class Char02 {
 	
 	public static void main(String[] args) {
-		String s = "Word, word, wOrd, word! w4rd";
+		String s = "Word, word, wOrd, word! word";
 		char[] chars = s.toCharArray();
 		for(int i = 0; i < chars.length; i++) {
 			if(isWord(i, chars)) {
@@ -19,7 +18,7 @@ public class Char02 {
 	public static boolean isWord(int fromIndex, char[] array) {
 		char[] word = {'w', 'o', 'r', 'd'};
 		for (int i = 0; i < word.length; i++) {
-			if(word[i] != array[fromIndex + i]) {
+			if(fromIndex + i >= array.length || word[i] != array[fromIndex + i]) {
 				return false;
 			}
 		}
@@ -45,6 +44,10 @@ public class Char02 {
 	}
 	
 	public static char[] expandCharArray(char[] array, int addSize) {
-		return Arrays.copyOf(array, array.length + addSize);
+		char[] newArray = new char[array.length + addSize];
+		for (int i = 0; i < array.length; i++) {
+			newArray[i] = array[i];
+		}
+		return newArray;
 	}
 }

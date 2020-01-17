@@ -21,7 +21,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		String string = "Жил-был принц! Он хотел взять себе в жены принцессу, да только настоящую принцессу. Вот он и объехал весь свет, искал такую, да повсюду было что-то не то. Принцесс было полно, а вот настоящие ли они, этого он никак не мог распознать до конца, всегда с ними было что-то не в порядке. Вот и воротился он домой и очень горевал: уж так ему хотелось настоящую принцессу.\r\n" + 
-						"Как-то ввечеру разыгралась страшная буря; сверкала молния, гремел гром, дождь лил как из ведра, ужас что такое! И вдруг в городские ворота постучали, и старый король пошел отворять.\r\n" + 
+						"Как-то  ввечеру разыгралась страшная буря; сверкала молния, гремел гром, дождь лил как из ведра, ужас что такое! И вдруг в городские ворота постучали, и старый король пошел отворять.\r\n" + 
 						"У ворот стояла принцесса. Боже мой, на кого она была похожа от дождя и непогоды! Вода стекала с ее волос и платья, стекала прямо в носки башмаков и вытекала из пяток, а она говорила, что она настоящая принцесса.\r\n" +
 						"\"Ну, это мы разузнаем!\" — подумала старая королева. Но ничего не сказала, а пошла в опочивальню. Сняла с кровати все тюфяки и подушки и положила на доски горошину, а потом взяла двадцать тюфяков и положила их на горошину, а на тюфяки еще двадцать перин из гагачьего пуха.";
 		ArrayList<Paragraph> story = new ArrayList<Paragraph>();
@@ -41,19 +41,19 @@ public class Main {
 	
 		System.out.println("--Сортировка параграфов по количеству предложений--");
 		sortParagr(story);
-		for(Paragraph arr : story) {
-			System.out.println(arr);
+		for(Paragraph par : story) {
+			System.out.println(par);
 		}
 		System.out.println("--Сортировка слов по длине--");
 		sortWords(story);
-		for(Paragraph arr : story) {
-			System.out.println(arr);
+		for(Paragraph par : story) {
+			System.out.println(par);
 		}
 		String chr = "а"; // кириллица
 		System.out.printf("--Сортировка слов по количеству вхождений \'%s\' и алфавиту--\r\n", chr);
 		sortByChar(story, chr);
-		for(Paragraph arr : story) {
-			System.out.println(arr);
+		for(Paragraph par : story) {
+			System.out.println(par);
 		}
 		System.out.println("---------");
 		
@@ -105,13 +105,15 @@ public class Main {
 	}
 	
 	public static String[] splitSentences(String str) {
-		Pattern pattern = Pattern.compile("\\b(\\.+|!\\?|!+|\\?+)\\s*");
+		Pattern pattern = Pattern.compile("\\b(\\.+|!\\?|\\?!|!+|\\?+)[ -—,.;:!\\?]+", Pattern.UNICODE_CASE);
 		return pattern.split(str);
 	}
 	
 	public static String[] splitWords(String str) {
-		Pattern pattern = Pattern.compile("\\b(\\s+|,|\\.+|!\\?|\\?!|!+|\\?+|;|:|-|—)\\s*"); //разделяем опираясь на конец слова, после которого идут знаки разделения слов
-		//Pattern pattern = Pattern.compile("\\b\\w"); //разделяем опираясь на конец слова, после которого идут знаки разделения слов
+		//разделяем опираясь на конец слова, после которого идут знаки разделения слов
+		Pattern pattern = Pattern.compile("\\b[ -—,.;:!\\?]+");
+		//простое деление по пробелам с сохранением знаков
+		//Pattern pattern = Pattern.compile("\\s+", Pattern.UNICODE_CASE); 
 		return pattern.split(str);
 	}
 

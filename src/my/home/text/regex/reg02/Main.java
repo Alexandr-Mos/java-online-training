@@ -1,5 +1,8 @@
 package my.home.text.regex.reg02;
 
+import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /* Дана строка, содержащая следующий текст (xml-документ):
 <notes>
@@ -24,6 +27,22 @@ package my.home.text.regex.reg02;
 public class Main {
 
 	public static void main(String[] args) {
+		String xml = "<notes>\r\n" + 
+					 " 	<note id = \"1\">\r\n" + 
+					 " 		<to>Вася</to>\r\n" + 
+					 " 		<from>Света</from>\r\n" + 
+					 " 		<heading>Напоминание</heading>\r\n" + 
+					 " 		<body>Позвони мне завтра!</body>\r\n" + 
+					 " 	</note>\r\n" + 
+					 " 	<note id = \"2\">\r\n" + 
+					 " 		<to>Петя</to>\r\n" + 
+					 " 		<from>Маша</from>\r\n" + 
+					 " 		<heading>Важное напоминание</heading>\r\n" + 
+					 " 		<body/>\r\n" + 
+					 " 	</note>\r\n" + 
+				"</notes>";
+		Pattern pattern = Pattern.compile("\\s*</?\\w+>\\s*", Pattern.UNICODE_CASE);
+		System.out.println(Arrays.toString(pattern.split(xml)));
 		
 	}
 	

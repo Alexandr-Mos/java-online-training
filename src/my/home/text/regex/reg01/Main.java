@@ -26,6 +26,7 @@ public class Main {
 						"\"Ну, это мы разузнаем!\" — подумала старая королева. Но ничего не сказала, а пошла в опочивальню. Сняла с кровати все тюфяки и подушки и положила на доски горошину, а потом взяла двадцать тюфяков и положила их на горошину, а на тюфяки еще двадцать перин из гагачьего пуха.";
 		ArrayList<Paragraph> story = new ArrayList<Paragraph>();
 		
+		//разбор текста
 		for (String paragrStr : splitParagr(string)) {
 			Paragraph paragraph = new Paragraph();
 			
@@ -81,7 +82,6 @@ public class Main {
 	
 	public static void sortByChar(ArrayList<Paragraph> story, String ch) {
 		Comparator<Word> comparator = (w1, w2) -> w1.compareTo(w2);
-		//comparator.thenComparing((w1, w2) -> w2.getValue().compareTo(w1.getValue()));
 		Pattern pattern = Pattern.compile(ch);
 		Matcher matcher = null;
 		

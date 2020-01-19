@@ -1,5 +1,6 @@
 package my.home.text.regex.reg02;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -41,9 +42,58 @@ public class Main {
 					 " 		<body/>\r\n" + 
 					 " 	</note>\r\n" + 
 				"</notes>";
-		Pattern pattern = Pattern.compile("\\s*</?\\w+>\\s*", Pattern.UNICODE_CASE);
-		System.out.println(Arrays.toString(pattern.split(xml)));
+		//Pattern pattern = Pattern.compile("(\\s*<)[a-zA-Z0-9]+(>\\s*)", Pattern.UNICODE_CASE);
+		ArrayList<Node> root = new Main().buildNode(xml);
+		System.out.println("!!!!!!!");
+		System.out.println(root.get(0));
+		System.out.println("!!!!!!!");
 		
+		
+	}
+	
+	public int start;
+	public int end;
+	public ArrayList<Node> buildNode(String xml) {
+		Pattern patternBegin = Pattern.compile("<[^<>/]+>", Pattern.UNICODE_CASE);
+		Matcher matcherBegin = patternBegin.matcher(xml);
+		Matcher matcherEnd;
+		Matcher temp;
+		ArrayList<Node> nodes = new ArrayList();
+		while (matcherBegin.find(start)) {
+			Node node = new Node();
+			String[] tagBegin = matcherBegin.group().replaceAll("<|>","").split(" ", 2);
+			start = matcherBegin.end();
+			end = 0;
+			matcherEnd = Pattern.compile("(</" + tagBegin[0] + ">)|(<" + tagBegin[0] + "/>)", Pattern.UNICODE_CASE)
+					     .matcher(xml);
+			
+			
+			
+			node.setTag(tagBegin[0]);
+			if (tagBegin.length > 1) {
+				node.setAttribute(tagBegin[1]);
+			}
+			
+			if (matcherEnd.find(start)) {
+				end = matcherEnd.start();
+			} else {
+				System.out.println("тсутствует закрывающий тег! " + tagBegin[0]);
+				return null;
+			}
+			
+			
+			String value = xml.substring(start, end);
+			temp = patternBegin.matcher(value);
+			if (temp.find()) {
+				node.setNodes(buildNode(xml));
+				value = null;
+			} else {
+				node.setValue(value);
+				
+			}
+			nodes.add(node);
+		}
+		return nodes;
 	}
 	
 }

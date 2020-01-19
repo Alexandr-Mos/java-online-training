@@ -38,7 +38,7 @@ public class Word {
 	}
 	
 	public String toString() {
-		return this.value + " " + this.matches;
+		return this.value;
 	}
 
 }

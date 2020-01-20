@@ -12,16 +12,21 @@ public class Time {
 	}
 	
 	public void setTime(int hours, int minutes, int seconds) {
-		this.hours = checkTime(hours);
-		this.minutes = checkTime(minutes);
-		this.seconds = checkTime(seconds);
+		this.hours = hours;
+		this.minutes = minutes;
+		this.seconds = seconds;
+		checkTime();
 	}
 	
-	private int checkTime(int time) {
-		if (time < 0 || 59 < time) {
-			return 0;
-		} else {
-			return time;
+	private void checkTime() {
+		if (hours < 0 || 23 < hours) {
+			this.hours = 0;
+		}
+		if (minutes < 0 || 59 < minutes) {
+			this.minutes = 0;
+		}
+		if (seconds < 0 || 59 < seconds) {
+			this.seconds = 0;
 		}
 	}
 	
@@ -30,7 +35,8 @@ public class Time {
 	}
 
 	public void setHours(int hours) {
-		this.hours = checkTime(hours);
+		this.hours = hours;
+		checkTime();
 	}
 
 	public int getMinutes() {
@@ -38,7 +44,8 @@ public class Time {
 	}
 
 	public void setMinutes(int minutes) {
-		this.minutes = checkTime(minutes);
+		this.minutes = minutes;
+		checkTime();
 	}
 
 	public int getSeconds() {
@@ -46,11 +53,12 @@ public class Time {
 	}
 
 	public void setSeconds(int seconds) {
-		this.seconds = checkTime(seconds);
+		this.seconds = seconds;
+		checkTime();
 	}
 	
 	public String toString() {
-		return "h: " + hours + " m: " + minutes + " s: " + seconds;
+		return "hs: " + hours + " ms: " + minutes + " ss: " + seconds;
 	}
 
 }

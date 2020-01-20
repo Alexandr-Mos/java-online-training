@@ -6,7 +6,11 @@ public class Main {
 		Time time = new Time();
 		System.out.println(time);
 		
-		time.setTime(hours, minutes, seconds);
+		time.setTime(23, 35, 11);
+		System.out.println(time);
+		
+		time.setHours(25);
+		System.out.println(time);
 
 	}
 

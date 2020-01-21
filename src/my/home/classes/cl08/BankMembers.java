@@ -23,5 +23,13 @@ public class BankMembers {
 			System.out.println(c);
 		}
 	}
+	
+	public void showMebersByCard(long from, long to) {
+		for (Customer c : members) {
+			if (c.getCardNumber() >= from && c.getCardNumber() <= to) {
+				System.out.println(c);
+			}
+		}
+	}
 
 }

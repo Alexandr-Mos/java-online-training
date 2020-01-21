@@ -8,17 +8,26 @@ public class Customer {
 	private String address;
 	private long cardNumber;
 	private long bankAccNumber;
+	private static int counterr;
 	
 	public Customer() {
 		
 	}
 	
-	public Customer(int id, String firstName, String secondName, String lastName) {
-		super();
-		this.id = id;
+	public Customer(String firstName, String secondName, String lastName) {
+		incremetCounter();
+		this.id = getCustomerCounter();
 		this.firstName = firstName;
 		this.secondName = secondName;
 		LastName = lastName;
+	}
+	
+	private void incremetCounter() {
+		Customer.counterr++;
+	}
+	
+	private int getCustomerCounter() {
+		return Customer.counterr;
 	}
 
 	public int getId() {

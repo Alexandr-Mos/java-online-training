@@ -9,8 +9,14 @@ public class File {
 		this.name = name;
 	}
 	
-	public void createFile() {
-		
+	public File create(Directory dir, String name) {
+		return new File(dir, name);
 	}
+	
+	public void rename(String newName) {
+		this.name = newName;
+	}
+	
+	public abstract void delete();
 
 }

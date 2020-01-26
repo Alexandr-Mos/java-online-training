@@ -1,6 +1,6 @@
 package my.home.oop.task3;
 
-public enum Day {
+public enum DayOfWeek {
 	MONDAY,
     TUESDAY,
     WEDNESDAY,

@@ -2,6 +2,8 @@ package my.home.firstLevel.branching;
 
 import java.util.Scanner;
 
+/* Заданы размеры А, В прямоугольного отверстия и размеры х, у, z кирпича. Определить, пройдет ли кирпич через
+отверстие.*/
 public class if4 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -10,7 +12,9 @@ public class if4 {
         int x = scanner.nextInt();
         int y = scanner.nextInt();
         int z = scanner.nextInt();
+        scanner.close();
 
+        //Написано не по code convention, но так намного проще читать :)
         if (x <= A && y <= B) System.out.println("Пройдет");
         else if (x <= A && z <= B) System.out.println("Пройдет");
         else if (y <= A && z <= B) System.out.println("Пройдет");

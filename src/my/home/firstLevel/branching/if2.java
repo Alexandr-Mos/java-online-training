@@ -11,7 +11,6 @@ public class if2 {
         int b = scanner.nextInt();
         int c = scanner.nextInt();
         int d = scanner.nextInt();
-        scanner.close();
         
         int minAB = a <  b ? a : b;
         int minCD = c <  d ? c : d; 

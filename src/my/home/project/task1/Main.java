@@ -20,31 +20,43 @@ e-mail всем пользователям
 не хранится в открытом виде*/
 
 public class Main {
+	
 
 	public static void main(String[] args) throws IOException {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
-		
-		System.out.println("Введите путь к каталогу:");
-		String command = scanner.nextLine();
+		String command = "F:\\test";
+
+		System.out.print("Введите директорию файлов библиотеки: ");
+		//command = scanner.nextLine();
 		FileManager fm = new FileManager(command);
+
 		while (!fm.getDirectory().isDirectory()) {
 			if (!fm.getDirectory().mkdir()) {
-				System.out.println("Данного каталога не существует и его невозможно создать...\n"
-						           + "Введите новый путь:");
+				System.out
+						.print("Данной директории не существует и её невозможно создать...\n" + "Введите новый путь: ");
 				command = scanner.nextLine();
 				fm.setDirectory(command);
 			} else {
 				System.out.println("Создан новый каталог");
 			}
-			
+
 		}
 
-		fm.createFile("test.txt");
-		fm.writeFile("test.txt", "Hello");
-		fm.writeFile("test.txt", "Hello");
-		System.out.println(fm.readFile("test.txt"));
+		if (!fm.existsCatalog()) {
+			fm.createFile(Catalog.FILE_NAME);
+		}
+		Catalog catalog = new Catalog(fm.readCatalog());
 		
+		System.out.println(catalog);
 
+		if (!fm.existsUsersBase()) {
+			fm.createFile(UsersBase.FILE_NAME);
+		}
+		UsersBase usersBase = new UsersBase(fm.readUsersBase(UsersBase.FILE_NAME));
+		System.out.println(usersBase);
+		
+		
 	}
 
 }

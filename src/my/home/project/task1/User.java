@@ -1,22 +1,26 @@
 package my.home.project.task1;
 
 public class User {
-	private String userName;
+	private String email;
 	private String password;
 	private boolean isAdmin;
 	
-	public User(String userName, String password, boolean isAdmin) {
-		this.userName = userName;
+	public User() {
+		
+	}
+	
+	public User(String email, String password, boolean isAdmin) {
+		this.email = email;
 		this.password = password;
 		this.isAdmin = isAdmin;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
@@ -34,7 +38,12 @@ public class User {
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
+
+	@Override
+	public String toString() {
+		return "User [email=" + email + ", password=" + password + ", isAdmin=" + isAdmin + "]";
+	}
 	
-		
+	
 
 }

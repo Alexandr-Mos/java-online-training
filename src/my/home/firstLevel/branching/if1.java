@@ -10,7 +10,6 @@ public class if1 {
         Scanner scanner = new Scanner(System.in);
         double x = scanner.nextDouble();
         double y = scanner.nextDouble();
-        scanner.close();
         
         if (180 - x - y > 0) {
             if (180 - x - y == 90 || x == 90 || y == 90) {

@@ -11,7 +11,6 @@ public class lin3 {
         Scanner scanner = new Scanner(System.in);
         double x = scanner.nextDouble();
         double y = scanner.nextDouble();
-        scanner.close();
        
         System.out.println((Math.sin(x) + Math.cos(y)) / (Math.cos(x) - Math.sin(y)) * Math.tan(x * y));
     }

@@ -5,16 +5,24 @@ public class Book {
 	private String name;
 	private String author;
 	private int year;
+	private String content;
+
 	private static int counter;
-	
-	public Book(String name, String author, int year) {
-		Book.incrementCounter();		
+
+	public Book() {
+		Book.incrementCounter();
+		this.id = Book.counter;
+	}
+
+	public Book(String name, String author, int year, String content) {
+		Book.incrementCounter();
 		this.id = Book.counter;
 		this.name = name;
 		this.author = author;
 		this.year = year;
+		this.content = content;
 	}
-	
+
 	private static void incrementCounter() {
 		Book.counter++;
 	}
@@ -51,9 +59,18 @@ public class Book {
 		this.year = year;
 	}
 
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", name=" + name + ", author=" + author + ", year=" + year + "]";
+		return "Book [id=" + id + ", name=" + name + ", author=" + author + ", year=" + year + ", \ncontent=" + content
+				+ "]";
 	}
-	
+
 }

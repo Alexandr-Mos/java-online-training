@@ -10,7 +10,6 @@ public class for2 {
         int a = scanner.nextInt();
         int b = scanner.nextInt();
         int h = scanner.nextInt();
-        scanner.close();
         
         for (int i = a; i <= b; i += h) {
             if (i > 2) {

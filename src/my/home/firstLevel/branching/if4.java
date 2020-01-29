@@ -12,7 +12,6 @@ public class if4 {
         int x = scanner.nextInt();
         int y = scanner.nextInt();
         int z = scanner.nextInt();
-        scanner.close();
 
         //Написано не по code convention, но так намного проще читать :)
         if (x <= A && y <= B) System.out.println("Пройдет");

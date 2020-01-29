@@ -10,8 +10,7 @@ public class lin6 {
         Scanner scanner = new Scanner(System.in);
         double x = scanner.nextDouble();
         double y = scanner.nextDouble();
-        scanner.close();
-        
+
         System.out.println((x >= -2 && x <= 2 && y >= 0  && y <= 4) ||
                 		   (x >= -4 && x <= 4 && y >= -3 && y <= 0));
     }

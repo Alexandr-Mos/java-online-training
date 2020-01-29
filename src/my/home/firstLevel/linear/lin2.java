@@ -10,7 +10,6 @@ public class lin2 {
         double a = scanner.nextDouble();
         double b = scanner.nextDouble();
         double c = scanner.nextDouble();
-        scanner.close();
         
         System.out.println(((b + Math.sqrt(b * b + 4 * a * c))
         		                                       / 2 / a) - a * a * a * c + 1 / b / b);

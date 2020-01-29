@@ -8,7 +8,6 @@ public class if5 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         double x = scanner.nextDouble();
-        scanner.close();
         double y;
         
         if (x>3) {

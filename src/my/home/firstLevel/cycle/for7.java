@@ -10,7 +10,6 @@ public class for7 {
         Scanner scanner = new Scanner(System.in);
         int m = scanner.nextInt();
         int n = scanner.nextInt();
-        scanner.close();
         
         for (int i = m; i <= n; i++) {
             System.out.println("Число = " + i);

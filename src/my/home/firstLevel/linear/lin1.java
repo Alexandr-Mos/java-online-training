@@ -10,7 +10,6 @@ public class lin1 {
         double a = scanner.nextDouble();
         double b = scanner.nextDouble();
         double c = scanner.nextDouble();
-        scanner.close();
         
         System.out.println(((a-3) * b / 2) + c);
         

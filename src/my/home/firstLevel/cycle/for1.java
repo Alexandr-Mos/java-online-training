@@ -13,7 +13,6 @@ public class for1 {
         while (x <= 0) {
         	x = scanner.nextInt();
         } 
-        scanner.close();
         
         for (int i = 1; i <= x; i++) {
             sum += i;

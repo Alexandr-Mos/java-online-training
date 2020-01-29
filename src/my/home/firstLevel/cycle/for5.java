@@ -12,7 +12,6 @@ public class for5 {
         double sum = 0;
         int i = 0;
         double a = 1 / Math.pow(2, i) + 1 / Math.pow(3, i);
-        scanner.close();
         
         while (Math.abs(a) >= e){
             sum += a;

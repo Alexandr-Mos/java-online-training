@@ -6,21 +6,21 @@ import java.util.Scanner;
 
 public class FileManager {
 	private File directory;
-	private File catalog;
-	private File usersBase;
+	private File catalogFile;
+	private File usersFile;
 
 	public FileManager(String directory) {
 		this.directory = new File(directory);
-		this.catalog = new File(directory + "\\" + Catalog.FILE_NAME);
-		this.usersBase = new File(directory + "\\" + UsersBase.FILE_NAME);
+		this.catalogFile = new File(directory + "\\" + Catalog.FILE_NAME);
+		this.usersFile = new File(directory + "\\" + UsersBase.FILE_NAME);
 	}
 
-	public boolean existsCatalog() {
-		return catalog.exists();
+	public boolean existsCatalogFile() {
+		return catalogFile.exists();
 	}
 
-	public boolean existsUsersBase() {
-		return usersBase.exists();
+	public boolean existsUsersFile() {
+		return usersFile.exists();
 	}
 
 	public boolean createFile(String name) {
@@ -38,7 +38,7 @@ public class FileManager {
 	}
 
 	public void writeFile(String name, String data) {
-		try (FileWriter fileWriter = new FileWriter(new File(directory, name), true)) {
+		try (FileWriter fileWriter = new FileWriter(new File(directory, name), false)) {
 			fileWriter.write(data);
 		} catch (IOException e) {
 			System.out.println("Ошибка записи файла: " + e.getMessage());
@@ -59,10 +59,10 @@ public class FileManager {
 		return data;
 	}
 
-	public ArrayList<Book> readCatalog() {
+	public ArrayList<Book> readCatalogFile() {
 		ArrayList<Book> data = new ArrayList<Book>();
 
-		try (Scanner scanner = new Scanner(new FileReader(catalog))) {
+		try (Scanner scanner = new Scanner(new FileReader(catalogFile))) {
 			while (scanner.hasNextLine()) {
 				Book book = new Book();
 				if (scanner.hasNextInt()) {
@@ -104,19 +104,20 @@ public class FileManager {
 		return data;
 	}
 
-	public ArrayList<User> readUsersBase(String name) {
+	public ArrayList<User> readUsersFile(String name) {
 		ArrayList<User> data = new ArrayList<User>();
 
-		try (Scanner scanner = new Scanner(new FileReader(usersBase))) {
+		try (Scanner scanner = new Scanner(new FileReader(usersFile))) {
 			while (scanner.hasNextLine()) {
 				String[] s = scanner.nextLine().split(" ");
-				User user = new User();
 				if (s.length == 3) {
+					User user = new User();
 					user.setEmail(s[0]);
 					user.setPassword(s[1]);
 					user.setAdmin(Boolean.parseBoolean(s[2]));
+					data.add(user);
 				}
-				data.add(user);
+				
 			}
 		} catch (IOException e) {
 			System.out.println("Ошибка чтения файла: " + e.getMessage());
@@ -133,9 +134,22 @@ public class FileManager {
 		this.directory = new File(directory);
 	}
 
-	@Override
-	public String toString() {
-		return "FileManager [directory=" + directory + "]";
+	public File getCatalogFile() {
+		return catalogFile;
 	}
+
+	public void setCatalogFile(String catalog) {
+		this.catalogFile = new File(catalog);
+	}
+
+	public File getUsersFile() {
+		return usersFile;
+	}
+
+	public void setUsersFile(String usersFile) {
+		this.usersFile = new File(usersFile);
+	}
+
+	
 
 }

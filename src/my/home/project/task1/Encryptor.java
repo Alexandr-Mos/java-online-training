@@ -8,7 +8,7 @@ public class Encryptor {
 	public Encryptor() {
 	}
 	
-	public String encryptMD5(String data) {
+	public static String encryptMD5(String data) {
 		MessageDigest md5;
 		StringBuilder result = new StringBuilder();
 		try {

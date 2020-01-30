@@ -16,7 +16,7 @@ public class Book {
 
 	public Book(String name, String author, int year, String content) {
 		Book.incrementCounter();
-		this.id = Book.counter;
+		setId(Book.counter);
 		this.name = name;
 		this.author = author;
 		this.year = year;
@@ -32,7 +32,15 @@ public class Book {
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		if (id > counter) {
+			counter = id;
+			this.id = id;
+		} else if(id == counter) {
+			incrementCounter();
+			this.id = counter;
+		} else {
+			this.id = counter;
+		}
 	}
 
 	public String getName() {
@@ -69,8 +77,7 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", name=" + name + ", author=" + author + ", year=" + year + ", \ncontent=" + content
-				+ "]";
+		return "id=" + id + ", name=" + name + ", author=" + author + ", year=" + year;
 	}
 
 }

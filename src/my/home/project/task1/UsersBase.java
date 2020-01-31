@@ -23,13 +23,15 @@ public class UsersBase {
 		usersBase.add(user);
 	}
 
-	public ArrayList<User> getUsersBase() {
+	public ArrayList<User> getUsersList() {
 		return usersBase;
 	}
 
-	public void setUsersBase(ArrayList<User> usersBase) {
+	public void setUsersList(ArrayList<User> usersBase) {
 		this.usersBase = usersBase;
 	}
+	
+	
 
 	@Override
 	public String toString() {

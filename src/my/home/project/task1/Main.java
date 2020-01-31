@@ -1,7 +1,6 @@
 package my.home.project.task1;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 /*Задание 1: создать консольное приложение “Учет книг в домашней библиотеке”.
 Общие требования к заданию:
@@ -17,7 +16,7 @@ e-mail всем пользователям
 администратору на e-mail.
 • Каталог книг хранится в текстовом файле.+
 • Данные аутентификации пользователей хранятся в текстовом файле. Пароль
-не хранится в открытом виде*/+
+не хранится в открытом виде+*/
 
 public class Main {
 
@@ -25,7 +24,7 @@ public class Main {
 		Console console = Console.getInstance();
 		String command = "F:\\test";
 
-		System.out.print("Введите директорию файлов библиотеки.");
+		System.out.println("Введите директорию файлов библиотеки...");
 		//command = console.nextCommand();
 		HomeLibrary lib = new HomeLibrary(command);
 		lib.initialise();

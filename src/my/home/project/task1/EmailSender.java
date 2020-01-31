@@ -1,24 +1,77 @@
 package my.home.project.task1;
 
+import java.util.Properties;
+
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 public class EmailSender {
-	private static EmailSender instance;
-	
-	private EmailSender() {
+	private String username;
+	private String password;
+	private Properties props;
+	private static String smtp = "smtp.gmail.com";
+
+	public EmailSender(String username, String password) {
+		this.username = username;
+		this.password = password;
+
+		props = new Properties();
+		props.put("mail.smtp.host", smtp);
+		props.put("mail.smtp.socketFactory.port", "465");
+		props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.port", "465");
+		//props.put("mail.debug", "true");
+
 	}
-	
-	public static EmailSender getInstance() {
-		if (instance == null) {
-			instance = new EmailSender();
+
+	public void send(String header, String text, String fromEmail, String toEmail) {
+		Session session = Session.getInstance(props, new Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password);
+			}
+		});
+		try {
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(username));
+			// список адресов отправляется однойстрокой через запятую
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
+			message.setSubject(header);
+			message.setText(text);
+
+			// session.getTransport().connect(smtp, username, password);
+
+			Transport.send(message);
+			System.out.println("Отправлены оповещения на почту");
+		} catch (MessagingException e) {
+			System.out.println("Ошибка отправки email");
+			e.printStackTrace();
 		}
-		return instance;
 	}
-	
-	public void sendToAdmins(String text) {}
-	
-	public void sendToAll(String text) {}
-	
-	public void sendToUsers(String text) {}
-	
-	public void sendToUser(String email, String text) {}
-	
+
+	public void sendToAdmins(String header, String text, UsersBase toUsers) {
+		StringBuilder admins = new StringBuilder();
+		for (User u : toUsers.getUsersList()) {
+			if (u.isAdmin()) {
+				admins.append(u.getEmail());
+				admins.append(", ");
+			}
+		}
+		send(header, text, username, admins.toString());
+	}
+
+	public void sendToAll(String header, String text, UsersBase toUsers) {
+		StringBuilder users = new StringBuilder();
+		for (User u : toUsers.getUsersList()) {
+			users.append(u.getEmail());
+			users.append(", ");
+		}
+		send(header, text, username, users.toString());
+	}
+
+	public void sendToUser(String header, String text, User user) {
+		send(header, text, username, user.getEmail());
+	}
+
 }

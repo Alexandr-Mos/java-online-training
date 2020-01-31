@@ -14,9 +14,10 @@ public class HomeLibrary {
 	}
 	
 	public void initialise() {
+		authUser = null;
 		fileMng = new FileManager(path);
 		console = Console.getInstance();
-		emailSender = EmailSender.getInstance();
+		emailSender = new EmailSender("game.digger96@gmail.com", "digger1996");
 
 		while (!fileMng.getDirectory().isDirectory()) {
 			if (!fileMng.getDirectory().mkdir()) {
@@ -137,6 +138,10 @@ public class HomeLibrary {
 	}
 	
 	public void addBook() {
+		if (authUser == null) {
+			System.out.println("Авторизируйтесь!");
+			return;
+		}
 		Book book = new Book();
 		System.out.println("Введите название ");
 		book.setName(console.nextCommand());
@@ -151,8 +156,9 @@ public class HomeLibrary {
 		if (authUser.isAdmin()) {
 			catalog.addBook(book);
 			System.out.println("Книга добавлена");
+			emailSender.sendToAll("Добавлена новая книга", book.toString(), usersBase);
 		} else {
-			emailSender.sendToAdmins(book.toString());
+			emailSender.sendToAdmins("Запрос на добавление книги", book.toString(), usersBase);
 		}
 	}
 	

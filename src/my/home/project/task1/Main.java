@@ -22,7 +22,7 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		Console console = Console.getInstance();
-		String command = "F:\\test";
+		String command = "D:\\test";
 
 		System.out.println("Введите директорию файлов библиотеки...");
 		//command = console.nextCommand();

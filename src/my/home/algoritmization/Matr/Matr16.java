@@ -14,74 +14,94 @@ import java.util.Scanner;
 public class Matr16 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        
         int n = scanner.nextInt();
+        int[] array = new int[n*n];
         int[][] matr = new int[n][n];
 
-        int i = n/2;
-        int j = n-1;
-
-        if (n % 2 == 1) {
-            for (int count = 1; count <= n*n; ) {
-                if (i == -1 && j == n){
-                    i = 0;
-                    j = n-2;
-                } else {
-                    if (i < 0) {
-                        i = n - 1;
-                    }
-                    if (j == n) {
-                        j = 0;
-                    }
-                    if (matr[i][j] != 0) {
-                        i++;
-                        j -= 2;
-                        continue;
-                    }
-                }
-                matr[i][j] = count;
-                j++;
-                i--;
-                count++;
-
-            }
-        } else {
-            int x = 1;
-//            for (int k = 0; k < n; k++) {
-//                for (int l = 0; l < n; l++) {
-//                    matr[k][l] = x;
-//                    x++;
-//                }
-//            }
-            int z = 2;
-            for (int k = 0; k < n ; k++) {
-                for (int l = 0; l < n ; l++) {
-                    if (z > 4) {
-                        z = 1;
-                    }
-                    if (z > 2) {
-                        matr[k][l] = x;
-                    }
-                    z++;
-                    x++;
-                }
-            }
-
-            x = 1;
-            z = 4;
-            for (int k = n-1; k >= 0 ; k--) {
-                for (int l = n-1; l >= 0 ; l--) {
-                    if (z > 4) {
-                        z = 1;
-                    }
-                    if (z > 2) {
-                        matr[k][l] = x;
-                    }
-                    z++;
-                    x++;
-                }
-            }
+        for (int i = 0; i < array.length; i++) {
+			array[i] = i + 1;
+		}
+        
+        boolean isMagic = false;
+        
+        while (!isMagic) {
+        	swap(array);
+        	isMagic = isMagic(array, matr);
         }
-
-        Matr.print(matr,n,n);
+        
+        for (int i = 0; i < matr.length; i++) {
+			for (int j = 0; j < matr.length; j++) {
+				System.out.print(matr[i][j] + " ");
+			}
+			System.out.println();
+		}
+        
+    }
+    
+    //меняем местами 2 случайные ячейки
+    public static void swap(int[] array) {
+    	int a;
+    	int b;
+    	a = (int) (Math.random() * array.length);
+    	b = (int) (Math.random() * array.length);
+    	int temp;
+    	temp = array[a];
+    	array[a] = array[b];
+    	array[b] = temp;
+    }
+    
+    //преобразовываем линейный массив в матрицу и проверяем суммы
+    public static boolean isMagic(int[] array, int[][] matr) {
+    	int c = 0;
+    	for (int i = 0; i < matr.length; i++) {
+			for (int j = 0; j < matr.length; j++) {
+				matr[i][j] = array[c];
+				c++;
+			}
+		}
+    	return chekSum(matr);
+    }
+    
+    //проверяем суммы строк, столбцов, диагоналей
+    public static boolean chekSum(int[][] matr) {
+    	int magicConst = matr.length * (matr.length * matr.length + 1) / 2;
+    	int sum = 0;
+    	
+    	for (int i = 0; i < matr.length; i++) {
+    		for (int j = 0; j < matr[i].length; j++) {
+    			sum += matr[i][j];
+			}
+			if (sum != magicConst) {
+				return false;
+			}
+			sum = 0;
+		}
+    	sum = 0;
+    	for (int i = 0; i < matr.length; i++) {
+    		for (int j = 0; j < matr[i].length; j++) {
+    			sum += matr[j][i];
+			}
+			if (sum != magicConst) {
+				return false;
+			}
+			sum = 0;
+		}
+    	sum = 0;
+    	for (int i = 0; i < matr.length; i++) {
+    		sum += matr[i][i];
+		}
+    	if (sum != magicConst) {
+			return false;
+		}
+    	sum = 0;
+    	for (int i = 0; i < matr.length; i++) {
+    		sum += matr[i][matr.length - i - 1];
+		}
+    	if (sum != magicConst) {
+			return false;
+		}
+    	
+    	return true;
     }
 }

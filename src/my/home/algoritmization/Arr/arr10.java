@@ -2,32 +2,42 @@ package my.home.algoritmization.Arr;
 
 import java.util.Scanner;
 
+/*Дан целочисленный массив с количеством элементов п. Сжать массив, выбросив из него каждый второй
+элемент (освободившиеся элементы заполнить нулями). Примечание. Дополнительный массив не использовать.*/
+
 public class arr10 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        int[] mas = new int[n];
-        Arr.fill(mas);
+	
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Введите n");
+		int n = scanner.nextInt();
+		while (n < 1) {
+			System.out.println("Ошибка! Введите еще раз");
+			n = scanner.nextInt();
+		}
 
-        //зануление нечетных элементов массива
-        for (int i = 0; i < mas.length; i++) {
-            if (i % 2 != 0) {
-                mas[i] = 0;
-            }
-            System.out.print(mas[i] + " ");
-        }
-        System.out.println();
+		// заполнение массива
+		System.out.println("Исходный массив");
+		int[] mas = new int[n];
+		for (int i = 0; i < mas.length; i++) {
+			mas[i] = (int) (Math.random() * 20);
+			System.out.print(mas[i] + " ");
+		}
+		System.out.println();
 
-        //Сдвиг нулей
-        for (int i = 1; i < mas.length; i++) {
-            for (int j = i; j < mas.length-1; j++) {
-                mas[j] = mas[j+1];
-            }
-        }
+		// Сдвиг элементов
+		for (int i = 1; i < mas.length; i++) {
+			for (int j = i; j < mas.length - 1; j++) {
+				mas[j] = mas[j + 1];
+				mas[j + 1] = 0;
+			}
+		}
 
-        //вывод на экран
-        for (int i = 0; i < mas.length; i++) {
-            System.out.print(mas[i] + " ");
-        }
-    }
+		// вывод на экран
+		System.out.println("Результат");
+		for (int i = 0; i < mas.length; i++) {
+			System.out.print(mas[i] + " ");
+		}
+	}
+	
 }

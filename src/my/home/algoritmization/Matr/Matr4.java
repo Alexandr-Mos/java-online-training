@@ -2,6 +2,8 @@ package my.home.algoritmization.Matr;
 
 import java.util.Scanner;
 
+/* Сформировать квадратную матрицу порядка n по заданному образцу(n - четное)*/
+
 public class Matr4 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

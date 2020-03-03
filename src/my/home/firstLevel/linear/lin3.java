@@ -5,6 +5,7 @@ import java.util.Scanner;
 /* Вычислить значение выражения по формуле (все переменные принимают действительные значения):
 (𝑠𝑖𝑛 𝑥 + 𝑐𝑜𝑠 𝑦)/(𝑐𝑜𝑠 𝑥 − 𝑠𝑖𝑛 𝑦)*∗ 𝑡𝑔 𝑥�
 */
+
 public class lin3 {
 	
     public static void main(String[] args) {

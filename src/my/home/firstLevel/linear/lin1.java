@@ -3,6 +3,7 @@ package my.home.firstLevel.linear;
 import java.util.Scanner;
 
 /*Найдите значение функции: z = ( (a – 3 ) * b / 2) + c.*/
+
 public class lin1 {
 
     public static void main(String[] args) {

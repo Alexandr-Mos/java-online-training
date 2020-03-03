@@ -3,6 +3,7 @@ package my.home.firstLevel.linear;
 import java.util.Scanner;
 
 /* Вычислить значение выражения по формуле (все переменные принимают действительные значения)*/
+
 public class lin2 {
 
     public static void main(String[] args) {

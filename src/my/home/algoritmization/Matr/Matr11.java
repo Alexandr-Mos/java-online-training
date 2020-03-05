@@ -1,20 +1,29 @@
 package my.home.algoritmization.Matr;
 
-public class Matr11 {
-    public static void main(String[] args) {
-        int[][] matr = new int[10][20];
-        Matr.fillTo15(matr,10,20);
+/*Матрицу 10x20 заполнить случайными числами от 0 до 15. Вывести на экран саму матрицу и номера строк, в
+которых число 5 встречается три и более раз.*/
 
-        for (int i = 0; i < 10; i++) {
-            int count = 0;
-            for (int j = 0; j < 15; j++) {
-                if (matr[i][j] == 5){
-                    count++;
-                }
-            }
-            if (count >= 3){
-                System.out.println("Строка " + (i+1));
-            }
-        }
-    }
+public class Matr11 {
+
+	public static void main(String[] args) {
+		int[][] matr = new int[10][20];
+		int count;
+
+		Matr.fillTo15(matr);
+		Matr.print(matr);
+
+		for (int i = 0; i < matr.length; i++) {
+			count = 0;
+			for (int j = 0; j < matr[i].length; j++) {
+				if (matr[i][j] == 5) {
+					count++;
+				}
+			}
+
+			if (count >= 3) {
+				System.out.println("Строка " + (i + 1));
+			}
+		}
+	}
+
 }

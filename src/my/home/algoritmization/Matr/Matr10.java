@@ -1,13 +1,20 @@
 package my.home.algoritmization.Matr;
 
+/*Найти положительные элементы главной диагонали квадратной матрицы*/
+
 public class Matr10 {
-    public static void main(String[] args) {
-        int[][] matr = new int[10][10];
-        Matr.fill(matr,10,10);
-        for (int i = 0; i < 10; i++) {
-            if (matr[i][i] > 0) {
-                System.out.println(matr[i][i]);
-            }
-        }
-    }
+
+	public static void main(String[] args) {
+		int[][] matr = new int[5][5];
+		Matr.fill(matr);
+		Matr.print(matr);
+		
+		System.out.println("Положительные элементы главной диагонали:");
+		for (int i = 0; i < matr.length; i++) {
+			if (matr[i][i] > 0) {
+				System.out.print(matr[i][i] + " ");
+			}
+		}
+	}
+
 }

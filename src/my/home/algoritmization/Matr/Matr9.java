@@ -7,7 +7,8 @@ public class Matr9 {
 
 	public static void main(String[] args) {
 		int[][] matr = new int[5][5];
-		Matr.fillWithPositiveNumbers(matr, matr.length, matr[0].length);
+		Matr.fillWithPositiveNumbers(matr);
+		Matr.print(matr);
 		int sumArr = 0;
 		int maxSum = 0;
 		int maxSumIndex = 0;

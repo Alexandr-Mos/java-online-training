@@ -6,7 +6,8 @@ public class Matr3 {
 	
     public static void main(String[] args) {
         int[][] matr = new int[10][10];
-        Matr.fill(matr,10,10);
+        Matr.fill(matr);
+        Matr.print(matr);
         int k = 3;
         int p = 7;
 

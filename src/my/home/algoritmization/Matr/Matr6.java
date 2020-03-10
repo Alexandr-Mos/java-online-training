@@ -38,7 +38,7 @@ public class Matr6 {
 			}
 		}
 
-		Matr.print(matr, n, n);
+		Matr.print(matr);
 	}
 
 }

@@ -31,7 +31,7 @@ public class Matr7 {
 			}
 		}
 		
-		Matr.print(matr, n, n);
+		Matr.print(matr);
 		System.out.println("Количество положительных элементов: " + count);
 	}
 	

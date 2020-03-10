@@ -29,7 +29,7 @@ public class Matr5 {
 				matr[i][j] = i + 1;
 			}
 		}
-		Matr.print(matr, n, n);
+		Matr.print(matr);
 
 	}
 

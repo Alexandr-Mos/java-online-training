@@ -33,7 +33,6 @@ public class arr10 {
 			}
 		}
 
-		// вывод на экран
 		System.out.println("Результат");
 		for (int i = 0; i < mas.length; i++) {
 			System.out.print(mas[i] + " ");

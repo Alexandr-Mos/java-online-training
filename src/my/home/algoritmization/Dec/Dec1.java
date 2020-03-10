@@ -1,6 +1,11 @@
 package my.home.algoritmization.Dec;
 
+/* Написать метод(методы) для нахождения наибольшего общего делителя и наименьшего общего кратного двух
+натуральных чисел:
+НОК(А,В) = (А * В) / НОД(А, В)*/
+
 public class Dec1 {
+	
 	public static void main(String[] args) {
 		System.out.println(NOK(10, 24));
 	}
@@ -20,4 +25,5 @@ public class Dec1 {
 		}
 		return a + b;
 	}
+	
 }

@@ -9,12 +9,13 @@ import java.util.Scanner;
 public class Matr8 {
 
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		int[][] matr = new int[10][10];
 		int k;
 		int p;
-		Matr.fill(matr, 10, 10);
-		Matr.print(matr, 10, 10);
+		Matr.fill(matr);
+		Matr.print(matr);
 
 		System.out.println("Введите номера столбцов для замены >>");
 		k = scanner.nextInt();
@@ -33,7 +34,7 @@ public class Matr8 {
 		}
 
 		System.out.println("Результат:");
-		Matr.print(matr, 10, 10);
+		Matr.print(matr);
 	}
 
 }

@@ -1,9 +1,18 @@
 package my.home.text.string;
 
+import java.util.Scanner;
+
+/*Посчитать количество строчных (маленьких) и прописных (больших) букв в введенной строке. Учитывать только английские
+буквы.*/
+
 public class Str09 {
 	
 	public static void main(String[] args) {
-		String str = "Some TeXt:)";
+		@SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Введите строку");
+		String str = scanner.nextLine();
 		int lowerCase = 0;
 		int upperCase = 0;
 		
@@ -14,6 +23,7 @@ public class Str09 {
 				lowerCase++;
 			}
 		}
+		
 		System.out.printf("Прописных - %s, строчных - %s", upperCase, lowerCase);
 	}
 

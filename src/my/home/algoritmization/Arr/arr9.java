@@ -8,7 +8,9 @@ import java.util.Scanner;
 public class arr9 {
 
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
+
 		System.out.println("Введите n");
 		int n = scanner.nextInt();
 		while (n < 1) {
@@ -16,8 +18,9 @@ public class arr9 {
 			n = scanner.nextInt();
 		}
 
-		int[] mas = new int[n];  // исходный массив
+		int[] mas = new int[n]; // исходный массив
 		int[] mas2 = new int[n]; // массив для записи количества совпадений
+		
 		System.out.println("Исходный массив");
 		for (int i = 0; i < mas.length; i++) {
 			mas[i] = (int) (Math.random() * 3);

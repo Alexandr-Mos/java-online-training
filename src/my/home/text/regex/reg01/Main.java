@@ -45,13 +45,13 @@ public class Main {
 		for(Paragraph par : story) {
 			System.out.println(par);
 		}
-		System.out.println("--Сортировка слов по длине--");
+		System.out.println("\n--Сортировка слов по длине--");
 		sortWords(story);
 		for(Paragraph par : story) {
 			System.out.println(par);
 		}
 		String chr = "а"; // кириллица
-		System.out.printf("--Сортировка слов по количеству вхождений \'%s\' и алфавиту--\r\n", chr);
+		System.out.printf("\n--Сортировка слов по количеству вхождений \'%s\' и алфавиту--\r\n", chr);
 		sortByChar(story, chr);
 		for(Paragraph par : story) {
 			System.out.println(par);

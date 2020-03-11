@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class arr8 {
 
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Введите n");
 		int n = scanner.nextInt();
@@ -38,21 +39,22 @@ public class arr8 {
 		int count = 0;
 		for (int i = 0; i < mas.length; i++) {
 			if (mas[i] == min) {
-				
+
 				for (int j = i; j < mas.length - (count + 1); j++) {
 					mas[j] = mas[j + 1];
 				}
 				count++;
 				i--;
-				
+
 			}
 		}
 
-		// при необходимости создаем новый массив с размером mas.length-count и перезаписываем
+		// при необходимости создаем новый массив с размером mas.length-count и
+		// перезаписываем
 		System.out.println("Количество совпадений " + count);
 		System.out.println("Результат");
 		for (int i = 0; i < mas.length - count; i++) {
-			System.out.print(mas[i] + " "); 
+			System.out.print(mas[i] + " ");
 		}
 
 	}

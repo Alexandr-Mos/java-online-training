@@ -1,6 +1,5 @@
 package my.home.algoritmization.Dec;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /*Даны натуральные числа К и N. Написать метод(методы) формирования массива А, элементами которого

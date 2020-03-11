@@ -1,5 +1,7 @@
 package my.home.text.string;
 
+/*Дан текст (строка). Найдите наибольшее количество подряд идущих пробелов в нем.*/
+
 public class Str01 {
 	
 	public static void main(String[] args) {
@@ -19,7 +21,8 @@ public class Str01 {
 				i++;
 			}
 		}
-		System.out.println(max);
+		
+		System.out.println("Максимальное количество пробелов подряд: " + max);
 	}
 	
 	public static int getLenOfSpc(int i, String str) {

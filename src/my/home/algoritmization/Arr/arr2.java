@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class arr2 {
 	
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		double z = scanner.nextDouble();
 		double[] mas = { 1.2, 2.4, 3.6, 4.0, 5.2, 6.4, 7.6, 8.8, 10.0 };

@@ -6,8 +6,11 @@ package my.home.algoritmization.Arr;
 import java.util.Scanner;
 
 public class arr7 {
+	
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
+		
 		System.out.println("Введите n");
 		int n = scanner.nextInt();
 		while (n < 1) {
@@ -39,4 +42,5 @@ public class arr7 {
 
 		System.out.println("Max = " + max);
 	}
+	
 }

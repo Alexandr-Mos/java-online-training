@@ -1,22 +1,26 @@
 package my.home.text.chr;
 
+/*Замените в строке все вхождения 'word' на 'letter'.*/
 
 public class Char02 {
 	
 	public static void main(String[] args) {
 		String s = "Word, word, wOrd, word! word";
 		char[] chars = s.toCharArray();
+		
 		for(int i = 0; i < chars.length; i++) {
 			if(isWord(i, chars)) {
 				chars = replaceWord(i, chars);
 			}
 		}
+		
 		s = new String(chars);
 		System.out.println(s);
 	}
 	
 	public static boolean isWord(int fromIndex, char[] array) {
 		char[] word = {'w', 'o', 'r', 'd'};
+		
 		for (int i = 0; i < word.length; i++) {
 			if(fromIndex + i >= array.length || word[i] != array[fromIndex + i]) {
 				return false;

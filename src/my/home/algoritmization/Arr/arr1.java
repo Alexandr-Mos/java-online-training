@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class arr1 {
 	
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		int k = scanner.nextInt();
 		int[] mas = new int[1000];

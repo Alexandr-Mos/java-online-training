@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class sort1 {
 
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 
 		int[] mas1 = { 1, 23, 1, 2, 3, 12, 44, 1 };

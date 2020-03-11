@@ -49,9 +49,4 @@ public class Node {
 		return "\r\nNode [tag=" + tag + ", value=" + value + ", attribute=" + attribute + ", nodes=" + nodes + "]";
 	}
 
-
-
-	
-	
-
 }

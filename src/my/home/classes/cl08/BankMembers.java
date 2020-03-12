@@ -18,6 +18,7 @@ public class BankMembers {
 		Comparator<Customer> com = (c1 ,c2) -> c1.getLastName().toLowerCase().compareTo(c2.getLastName().toLowerCase());
 		com = com.thenComparing((c1 ,c2) -> c1.getFirstName().toLowerCase().compareTo(c2.getFirstName().toLowerCase()));
 		com = com.thenComparing((c1, c2) -> c1.getSecondName().toLowerCase().compareTo(c2.getSecondName().toLowerCase()));
+		
 		this.members.sort(com);
 		for (Customer c : members) {
 			System.out.println(c);

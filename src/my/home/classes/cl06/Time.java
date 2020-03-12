@@ -4,20 +4,20 @@ public class Time {
 	private int hours;
 	private int minutes;
 	private int seconds;
-	
+
 	public Time() {
 		this.hours = 0;
 		this.minutes = 0;
 		this.seconds = 0;
 	}
-	
+
 	public void setTime(int hours, int minutes, int seconds) {
 		this.hours = hours;
 		this.minutes = minutes;
 		this.seconds = seconds;
 		checkTime();
 	}
-	
+
 	private void checkTime() {
 		if (hours < 0 || 23 < hours) {
 			this.hours = 0;
@@ -29,7 +29,7 @@ public class Time {
 			this.seconds = 0;
 		}
 	}
-	
+
 	public int getHours() {
 		return hours;
 	}
@@ -56,7 +56,7 @@ public class Time {
 		this.seconds = seconds;
 		checkTime();
 	}
-	
+
 	public String toString() {
 		return "hs: " + hours + " ms: " + minutes + " ss: " + seconds;
 	}

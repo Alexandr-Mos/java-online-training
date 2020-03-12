@@ -7,38 +7,40 @@ public class Triangle {
 	private double ab;
 	private double bc;
 	private double ca;
-	
+
 	private Triangle(Point a, Point b, Point c) {
 		this.a = a;
 		this.b = b;
 		this.c = c;
-		this.ab = getDistance(a , b);
-		this.bc = getDistance(b , c);
-		this.ca = getDistance(c , a);
+		this.ab = getDistance(a, b);
+		this.bc = getDistance(b, c);
+		this.ca = getDistance(c, a);
 	}
-	
+
 	public static Triangle createTriangle(Point a, Point b, Point c) {
 		return new Triangle(a, b, c);
 	}
-	
+
 	public double getSpace() {
-		double p = (ab + bc +ca) / 2.0;
+		double p = (ab + bc + ca) / 2.0;
+		
 		return Math.sqrt(p * (p - ab) * (p - bc) * (p - ca));
 	}
-	
+
 	public double getPerimeter() {
-		return getDistance(a, b) + getDistance(b, c) + getDistance(c, a);
+		return ab + bc + ca;
 	}
-	
+
 	private double getDistance(Point a, Point b) {
 		double pow1 = Math.pow(Math.abs(a.getX()) - Math.abs(b.getX()), 2);
 		double pow2 = Math.pow(Math.abs(a.getY()) - Math.abs(b.getY()), 2);
+		
 		return Math.sqrt(pow1 + pow2);
 	}
-	
+
 	public Point medianInterseptionPoint() {
-		Point d = new Point((a.getX() + b.getX()) / 2.0
-				          , (a.getY() + b.getY()) / 2.0);
+		Point d = new Point((a.getX() + b.getX()) / 2.0, (a.getY() + b.getY()) / 2.0);
+		
 		double tempX = (c.getX() + 2 * d.getX()) / 3.0;
 		double tempY = (c.getY() + 2 * d.getY()) / 3.0;
 		return new Point(tempX, tempY);

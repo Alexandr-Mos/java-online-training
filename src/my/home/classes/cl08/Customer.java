@@ -9,11 +9,11 @@ public class Customer {
 	private long cardNumber;
 	private long bankAccNumber;
 	private static int counterr;
-	
+
 	public Customer() {
-		
+
 	}
-	
+
 	public Customer(String firstName, String secondName, String lastName) {
 		incremetCounter();
 		this.id = getCustomerCounter();
@@ -21,11 +21,11 @@ public class Customer {
 		this.secondName = secondName;
 		LastName = lastName;
 	}
-	
+
 	private void incremetCounter() {
 		Customer.counterr++;
 	}
-	
+
 	private int getCustomerCounter() {
 		return Customer.counterr;
 	}
@@ -88,17 +88,9 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + 
-				", LastName=" + LastName + 
-				", firstName=" + firstName + 
-				", secondName="	+ secondName + 
-				", address=" + address + 
-				", cardNumber=" + cardNumber + 
-				", bankAccNumber=" + bankAccNumber + "]";
+		return "Customer [id=" + id + ", LastName=" + LastName + ", firstName=" + firstName + ", secondName="
+				+ secondName + ", address=" + address + ", cardNumber=" + cardNumber + ", bankAccNumber="
+				+ bankAccNumber + "]";
 	}
-	
-	
-	
-	
 
 }

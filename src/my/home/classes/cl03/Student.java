@@ -3,7 +3,7 @@ package my.home.classes.cl03;
 import java.util.Arrays;
 
 public class Student {
-		private String name;
+	private String name;
 	private int group;
 	private int[] rating = new int[5];
 
@@ -12,16 +12,16 @@ public class Student {
 		this.group = group;
 		this.rating = rating;
 	}
-	
+
 	public boolean isExcellentPupil() {
 		for (int i = 0; i < rating.length; i++) {
 			if (rating[i] < 9) {
 				return false;
 			}
-		} 
+		}
 		return true;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -50,7 +50,5 @@ public class Student {
 	public String toString() {
 		return "Student [name=" + name + ", group=" + group + ", rating=" + Arrays.toString(rating) + "]";
 	}
-	
-	
 
 }

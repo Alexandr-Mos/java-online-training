@@ -15,11 +15,25 @@ public class BankAccount {
 		this.money = new BigDecimal(0).setScale(2);
 	}
 	
+	public BigDecimal getMoneyValue() {
+		return money;
+	}
+	
 	public void addMoney(BigDecimal value) {
+		if (isBlocked) {
+			System.out.println("Cant add money/Account is blocked");
+			return;
+		}
+		
 		this.money = this.money.add(value);
 	}
 	
 	public void reduceMoney(BigDecimal value) {
+		if (isBlocked) {
+			System.out.println("Cant reduce money/Account is blocked");
+			return;
+		}
+		
 		this.money = this.money.subtract(value);
 	}
 	
@@ -45,7 +59,7 @@ public class BankAccount {
 
 	@Override
 	public String toString() {
-		return "BankAccount [owner=" + owner + ", accountNumber=" + accountNumber + ", isBlocked=" + isBlocked
+		return "\nBankAccount [owner=" + owner.getName() + ", accountNumber=" + accountNumber + ", isBlocked=" + isBlocked
 				+ ", money=" + money + "]";
 	}
 

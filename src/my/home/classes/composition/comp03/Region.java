@@ -19,7 +19,7 @@ public class Region {
 
 	@Override
 	public String toString() {
-		return city + " region";
+		return city + " region, area: " + area;
 	}
 	
 }

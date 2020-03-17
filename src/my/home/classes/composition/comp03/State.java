@@ -9,10 +9,20 @@ public class State {
 	public State(Region capitalRegion) {
 		this.capitalRegion = capitalRegion;
 		regions = new ArrayList<Region>();
+		regions.add(capitalRegion);
+	}
+	
+	public double getArea() {
+		double area = 0;
+		
+		for(Region r : regions) {
+			area += r.getArea();
+		}
+		return area;
 	}
 	
 	public void addRegion(Region region) {
-		regions.add(region)
+		regions.add(region);
 	}
 	
 	public Region getCapitalRegion() {

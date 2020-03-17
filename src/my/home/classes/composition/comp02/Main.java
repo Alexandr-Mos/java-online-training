@@ -1,5 +1,8 @@
 package my.home.classes.composition.comp02;
 
+/* Создать объект класса Автомобиль, используя классы Колесо, Двигатель. Методы: ехать, заправляться,
+менять колесо, вывести на консоль марку автомобиля.*/
+
 public class Main {
 	
 	public static void main(String[] args) {

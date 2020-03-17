@@ -4,12 +4,11 @@ import java.util.ArrayList;
 
 public class Country {
 	private ArrayList<State> states;
-	private State capitalState;
+	private City capitalCity;
 	
-	public Country(State capitalState) {
-		this.capitalState = capitalState;
+	public Country(City capitalCity) {
+		this.capitalCity = capitalCity;
 		this.states = new ArrayList<State>();
-		states.add(capitalState);
 	}
 	
 	public void addState(State state) {
@@ -17,7 +16,7 @@ public class Country {
 	}
 	
 	public void getCapitalCity() {
-		System.out.println("Capital city " + this.capitalState.getCapitalRegion().getCity());
+		System.out.println("Capital city " + capitalCity);
 	}
 	
 	public void getStatesNumber() {
@@ -28,9 +27,7 @@ public class Country {
 		double fullArea = 0;
 		
 		for (State s : states) {
-			for (Region r : s.getRegions()) {
-				fullArea += r.getArea();
-			}
+			fullArea += s.getArea();
 		}
 		System.out.println("Full area: " + fullArea);
 	}
@@ -50,13 +47,6 @@ public class Country {
 		this.states = states;
 	}
 
-	public State getCapitalState() {
-		return capitalState;
-	}
-
-	public void setCapitalState(State capitalState) {
-		this.capitalState = capitalState;
-	}
 	
 	
 	

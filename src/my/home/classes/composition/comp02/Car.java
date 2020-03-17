@@ -18,22 +18,24 @@ public class Car {
 	}
 	
 	public void changeWheel(String oldWheel, Wheel newWheel) {
+		
 		for (Wheel w : wheels) {
+			
 			if (w.getName().equals(oldWheel)) {
 				wheels.remove(w);
 				wheels.add(newWheel);
 				System.out.println("Removed: " + w + " Added: " + newWheel);
 				return;
 			}
+			
 		}
 		System.out.println("Такое колесо не найдено");
-		
-		
 		
 	}
 	
 	public void go(int speed) {
 		engine.start();
+		
 		if (engine.getLevelFuel() > 0) {
 			engine.setSpeed(speed);
 		}

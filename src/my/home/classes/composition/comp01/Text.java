@@ -31,4 +31,8 @@ public class Text {
 		}
 		System.out.println();
 	}
+	
+	public ArrayList<Sentence> getSentenceList() {
+		return text;
+	}
 }

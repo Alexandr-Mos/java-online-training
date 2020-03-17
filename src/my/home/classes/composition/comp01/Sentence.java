@@ -19,7 +19,7 @@ public class Sentence {
 		sentence.add(word);
 	}
 	
-	public ArrayList<Word> getSentence() {
+	public ArrayList<Word> getWordList() {
 		return sentence;
 	}
 

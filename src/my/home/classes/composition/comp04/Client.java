@@ -1,5 +1,6 @@
 package my.home.classes.composition.comp04;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Client {
@@ -15,6 +16,15 @@ public class Client {
 	
 	public void addAccount(BankAccount account) {
 		accounts.add(account);
+	}
+	
+	public void printTotalMoney() {
+		BigDecimal totalMoney = new BigDecimal(0);
+		
+		for(BankAccount acc : accounts) {
+			totalMoney = totalMoney.add(acc.getMoneyValue());
+		}
+		System.out.println("TotalMoney for " + name + " is " + totalMoney);
 	}
 
 	public String getName() {

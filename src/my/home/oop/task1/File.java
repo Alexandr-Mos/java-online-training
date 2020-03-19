@@ -4,7 +4,7 @@ public class File {
 	private String name;
 	private Directory directory;
 	
-	public File(Directory dir, String name) {
+	private File(Directory dir, String name) {
 		this.directory = dir;
 		this.name = name;
 	}
@@ -17,6 +17,10 @@ public class File {
 		this.name = newName;
 	}
 	
-	public abstract void delete();
+	public void delete() {
+		directory = null;
+		name = null;
+	}
+	
 
 }

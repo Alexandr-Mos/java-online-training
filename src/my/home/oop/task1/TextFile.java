@@ -5,10 +5,11 @@ public class TextFile extends File {
 	private String content = "";
 	
 	public TextFile(Directory dir, String name) {
-		super(dir, name);
+		super(dir, name + TextFile.endpoint);
 	}
 	
 	public void open() {
+		if ()
 		System.out.println(content);
 	}
 

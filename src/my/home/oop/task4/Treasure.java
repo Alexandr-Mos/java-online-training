@@ -5,14 +5,14 @@ public class Treasure {
 	private String name;
 	private int cost;
 	private static int counter = 0;
-	
+
 	public Treasure(String name, int cost) {
 		incCounter();
 		this.id = getCounter();
 		this.name = name;
 		this.cost = cost;
 	}
-	
+
 	private static void incCounter() {
 		counter++;
 	}
@@ -44,19 +44,14 @@ public class Treasure {
 	public static int getCounter() {
 		return counter;
 	}
-	
+
 	public int compareTo(Treasure t) {
 		return Integer.valueOf(this.getCost()).compareTo(Integer.valueOf(t.getCost()));
 	}
 
-	
 	@Override
 	public String toString() {
 		return "Treasure [id=" + id + ", \tname=" + name + ", \tcost=" + cost + "]";
 	}
-	
-	
-	
-	
 
 }

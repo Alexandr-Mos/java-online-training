@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class Dragon {
 	private String name;
 	private ArrayList<Treasure> treasures;
-	
+
 	public Dragon(String name) {
 		this.name = name;
 	}
-	
+
 	public static ArrayList<Treasure> generateTreasures() {
 		ArrayList<Treasure> treasures = new ArrayList<Treasure>();
 		for (int i = 0; i < 100; i++) {
@@ -39,5 +39,5 @@ public class Dragon {
 	public String toString() {
 		return "Dragon [name=" + name + ", treasures=\r\n" + treasures + "]";
 	}
-	
+
 }

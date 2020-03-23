@@ -9,7 +9,6 @@ public class TextFile extends File {
 	}
 	
 	public void open() {
-		if ()
 		System.out.println(content);
 	}
 

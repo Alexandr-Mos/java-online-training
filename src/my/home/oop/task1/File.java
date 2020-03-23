@@ -4,7 +4,7 @@ public class File {
 	private String name;
 	private Directory directory;
 	
-	private File(Directory dir, String name) {
+	 public File(Directory dir, String name) {
 		this.directory = dir;
 		this.name = name;
 	}

@@ -10,6 +10,7 @@ public class Main {
 		Student[] students = new Student[10];
 		int[] rating;
 
+		//Генерация студентов
 		for (int i = 0; i < students.length; i++) {
 			rating = new int[5];
 			for (int j = 0; j < rating.length; j++) {

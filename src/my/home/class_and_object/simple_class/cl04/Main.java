@@ -42,15 +42,19 @@ public class Main {
 	}
 
 	public static void sortByDestination(ArrayList<Train> list) {
-		Comparator<Train> com = (t1, t2) -> t1.getDestination().toLowerCase()
-				.compareTo(t2.getDestination().toLowerCase());
-		com = com.thenComparing(
-				(t1, t2) -> Long.valueOf(t1.getDepartureTime()).compareTo(Long.valueOf(t2.getDepartureTime())));
+		Comparator<Train> com;
+		com = (t1, t2) -> t1.getDestination().toLowerCase()
+				            .compareTo(t2.getDestination().toLowerCase());
+		
+		com = com.thenComparing((t1, t2) -> Long.valueOf(t1.getDepartureTime())
+				                            .compareTo(Long.valueOf(t2.getDepartureTime())));
 		list.sort(com);
 	}
 
 	public static void sortByNumber(ArrayList<Train> list) {
-		Comparator<Train> com = (t1, t2) -> Integer.valueOf(t1.getNumber()).compareTo(t2.getNumber());
+		Comparator<Train> com;
+		com = (t1, t2) -> Integer.valueOf(t1.getNumber()).compareTo(t2.getNumber());
+		
 		list.sort(com);
 	}
 

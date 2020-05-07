@@ -8,7 +8,7 @@ public class Triangle {
 	private double bc;
 	private double ca;
 
-	private Triangle(Point a, Point b, Point c) {
+	public Triangle(Point a, Point b, Point c) {
 		this.a = a;
 		this.b = b;
 		this.c = c;
@@ -17,13 +17,9 @@ public class Triangle {
 		this.ca = getDistance(c, a);
 	}
 
-	public static Triangle createTriangle(Point a, Point b, Point c) {
-		return new Triangle(a, b, c);
-	}
 
 	public double getSpace() {
 		double p = (ab + bc + ca) / 2.0;
-		
 		return Math.sqrt(p * (p - ab) * (p - bc) * (p - ca));
 	}
 

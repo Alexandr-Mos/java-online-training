@@ -1,7 +1,6 @@
 package my.home.class_and_object.simple_class.cl04;
 
 public class Train {
-
 	private String destination;
 	private int number;
 	private long departureTime;

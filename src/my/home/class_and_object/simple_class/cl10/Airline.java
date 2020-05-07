@@ -2,13 +2,18 @@ package my.home.class_and_object.simple_class.cl10;
 
 public class Airline {
 	private String destination;
-	private int flightNumber;
 	private Plane plane;
 	private long depatureTime;
 	private Day day;
+	private int flightNumber;
+	private static int counter;
 	
-	public Airline() {
-		
+	public Airline(String destination, Plane plane, long depatureTime, Day day) {
+		this.destination = destination;
+		this.plane = plane;
+		this.depatureTime = depatureTime;
+		this.day = day;
+		this.flightNumber = ++Airline.counter;
 	}
 
 	public String getDestination() {
@@ -21,10 +26,6 @@ public class Airline {
 
 	public int getFlightNumber() {
 		return flightNumber;
-	}
-
-	public void setFlightNumber(int flightNumber) {
-		this.flightNumber = flightNumber;
 	}
 
 	public Plane getPlane() {

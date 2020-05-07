@@ -10,13 +10,6 @@ public class Book {
 	private int pages;
 	private double price;
 	private String binding;
-	
-	
-	public Book() {
-		
-	}
-	
-	
 
 	public Book(int id, String title, String authors, String publisher, int year, int pages, double price,
 			String binding) {
@@ -30,8 +23,6 @@ public class Book {
 		this.price = price;
 		this.binding = binding;
 	}
-
-
 
 	public int getId() {
 		return id;

@@ -6,7 +6,11 @@ public class Airport {
 	private ArrayList<Airline> airlines;
 	
 	public Airport() {
-		this.airlines = new ArrayList<Airline>();
+		airlines = new ArrayList<Airline>();
+	}
+	
+	public void addAirlane(Airline airline) {
+		airlines.add(airline);
 	}
 	
 	public ArrayList<Airline> getPlaneBy(String destination) {
@@ -31,15 +35,21 @@ public class Airport {
 		return planes;
 	}
 	
-	public ArrayList<Airline> getPlaneBy(Day day, long depatureTime) {
+	public ArrayList<Airline> getPlaneBy(Day day, long afterTime) {
 		ArrayList<Airline> planes = new ArrayList<Airline>();
 		
 		for (Airline a : airlines) {
-			if (a.getDay().equals(day) && a.getDepatureTime() > depatureTime) {
+			if (a.getDay().equals(day) && a.getDepatureTime() > afterTime) {
 				planes.add(a);
 			}
 		}
 		return planes;
 	}
 
+	@Override
+	public String toString() {
+		return "Airport [airlines=" + airlines + "]";
+	}
+
+	
 }

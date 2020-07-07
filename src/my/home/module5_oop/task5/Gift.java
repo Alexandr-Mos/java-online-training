@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Gift {
 	private BoxType boxType;
 	private Wrap wrap;
-	private String decoration;
+	private ArrayList<String> decoration;
 	private ArrayList<Candy> candies;
 	private String toy;
 	
@@ -33,11 +33,11 @@ public class Gift {
 		this.wrap = wrap;
 	}
 
-	public String getDecoration() {
+	public ArrayList<String> getDecoration() {
 		return decoration;
 	}
 
-	public void setDecoration(String decoration) {
+	public void setDecoration(ArrayList<String> decoration) {
 		this.decoration = decoration;
 	}
 
@@ -59,7 +59,7 @@ public class Gift {
 
 	@Override
 	public String toString() {
-		return "Gift [boxType=" + boxType + ", wrap=" + wrap + ", decoration=" + decoration + ", candies=" + candies
-				+ ", toy=" + toy + "]";
+		return "Gift [boxType=" + boxType + "\n, wrap=" + wrap + "\n, decoration=" + decoration + "\n, candies=" + candies
+				+ "\n, toy=" + toy + "]";
 	}
 }

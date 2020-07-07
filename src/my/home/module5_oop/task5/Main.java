@@ -17,5 +17,20 @@ package my.home.module5_oop.task5;
 подарок). Составляющими целого подарка являются сладости и упаковка.*/
 
 public class Main {
+	
+	public static void main(String[] args) {
+		Gift gift = new GiftCollector().
+				addBox(BoxType.CARDBOARD).
+				addDecoration("Бант").
+				addWrap(new Wrap("Красный", "Цветы")).
+				addToy("Мягкая игрушка").
+				addCandy(new Candy("Барбариска", 5)).
+				addCandy(new Candy("Коровка", 10)).
+				addCandy(new Candy("Аэрофлотские", 15)).
+				addCandy(new Candy("Коровка", 3)).
+				build();
+		
+		System.out.println(gift);
+	}
 
 }

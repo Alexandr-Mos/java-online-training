@@ -5,12 +5,13 @@ import java.util.ArrayList;
 public class GiftBuilder {
 	private BoxType boxType;
 	private Wrap wrap;
-	private String decoration;
+	private ArrayList<String> decoration;
 	private ArrayList<Candy> candies;
 	private String toy;
 	
 	public GiftBuilder() {
-		candies = new ArrayList<Candy>;
+		decoration = new ArrayList<String>();
+		candies = new ArrayList<Candy>();
 	}
 	
 	public GiftBuilder withBoxType(BoxType boxType) {
@@ -24,7 +25,7 @@ public class GiftBuilder {
 	}
 	
 	public GiftBuilder withDecoration(String decoration) {
-		this.decoration = decoration;
+		this.decoration.add(decoration);
 		return this;
 	}
 	
@@ -50,7 +51,7 @@ public class GiftBuilder {
 		return wrap;
 	}
 
-	public String getDecoration() {
+	public ArrayList<String> getDecoration() {
 		return decoration;
 	}
 
